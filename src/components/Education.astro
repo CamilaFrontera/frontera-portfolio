@@ -1,0 +1,227 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="section" id="educacion">
+  <h2>Educación & Formación</h2>
+
+  <div class="education-item">
+    <h3><Icon name="mdi:school-outline" /> Tecnicatura en Desarrollo de Software</h3>
+    <p class="institution">ISFDyT</p>
+    <p class="description">Formación en desarrollo de software con enfoque en buenas prácticas, control de versiones y desarrollo ágil.</p>
+  </div>
+
+  <h3 class="certifications-title"><Icon name="mdi:certificate-outline" /> Licencias y Certificaciones</h3>
+  <div class="certifications-grid">
+    <div class="certification-item">
+      <h4>AWS Technical Essentials</h4>
+      <p class="issuer">Amazon Web Services (AWS)</p>
+      <p class="date">Expedición: Dic. 2025</p>
+      <p class="credential">ID: PMBXVUY-S0CezEg9yGngcA2</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>English Mastery CEFR C1 <Icon name="circle-flags:uk" class="flag" /></h4>
+      <p class="issuer">Wall Street English</p>
+      <p class="date">Expedición: Dic. 2022</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Testing Automation con Selenium</h4>
+      <p class="issuer">EducacionIT</p>
+      <p class="date">Expedición: May. 2022</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Testing QA Automation</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Abr. 2022</p>
+      <p class="credential">ID: 6250d414d853fb00190c1342</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Angular</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Feb. 2022</p>
+      <p class="credential">ID: 6212697aed03fd0046d7bb53</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Testing QA Manual</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Ene. 2022</p>
+      <p class="credential">ID: 620195d07bc8e70041ca2104</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Java Inicial</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Dic. 2021</p>
+      <p class="credential">ID: 61f15b148873810010b6e41b</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>EF SET Certificate of English <Icon name="circle-flags:uk" class="flag" /></h4>
+      <p class="issuer">EF SET</p>
+      <p class="date">Expedición: Jul. 2021</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Splunk 7.x Fundamentals Part 1</h4>
+      <p class="issuer">Splunk</p>
+      <p class="date">Expedición: Ago. 2021</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Metodologías Ágiles (Scrum)</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Oct. 2021</p>
+      <p class="credential">ID: 61829d6177dfd70069c29542</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>Desarrollo Web</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Oct. 2021</p>
+      <p class="credential">ID: 619e528052fdf700731f553d</p>
+    </div>
+
+    <div class="certification-item">
+      <h4>JavaScript</h4>
+      <p class="issuer">Coderhouse</p>
+      <p class="date">Expedición: Oct. 2021</p>
+      <p class="credential">ID: 61a44317cae9b600354ad0ad</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    scroll-margin-top: var(--header-height, 88px);
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  .education-item {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .education-item h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .education-item h3 svg {
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+  }
+
+  .education-item .institution {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+  }
+
+  .education-item .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .certifications-title {
+    margin: 2rem 0 1.5rem 0;
+    font-size: 1.4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .certifications-title svg {
+    width: 1.2em;
+    height: 1.2em;
+  }
+
+  .certification-item h4 svg.flag {
+    width: 0.95em;
+    height: 0.95em;
+    vertical-align: -0.1em;
+  }
+
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .certification-item {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .certification-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .certification-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .certification-item .issuer {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .certification-item .date {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin: 0.25rem 0;
+  }
+
+  .certification-item .credential {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin: 0.5rem 0 0 0;
+    word-break: break-word;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .certifications-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

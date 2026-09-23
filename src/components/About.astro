@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="section" id="sobre-mi">
+  <h2>Sobre mí</h2>
+  <div class="about-content">
+    <p>QA Automation Engineer con más de 5 años de experiencia en el sector bancario y financiero, especializada en el diseño y la automatización de pruebas para plataformas críticas. Automatizo pruebas de UI y API con Playwright, Karate y Postman, consulto y valido datos en SQL a diario, y utilizo herramientas de IA para optimizar código, generar reportes y tomar decisiones de manera más ágil.</p>
+    
+    <p>Me caracterizo por transformar tareas manuales lentas y repetitivas en procesos automatizados rápidos. Colaboro estrechamente con equipos de desarrollo, BA, PO y UX bajo un enfoque shift-left; inglés C1 con experiencia como docente. Actualmente ampliando mis conocimientos hacia la automatización mobile con Appium.</p>
+    
+    <div class="contact-info">
+      <p><Icon name="mdi:map-marker" /> <strong>Ubicación:</strong> Rojas, Buenos Aires, Argentina</p>
+      <p><Icon name="mdi:email-outline" /> <strong>Email:</strong> <a href="mailto:camilasofiafront@gmail.com">camilasofiafront@gmail.com</a></p>
+      <p><Icon name="mdi:translate" /> <strong>Idiomas:</strong> Español <Icon name="circle-flags:ar" class="flag" /> · Inglés C1 <Icon name="circle-flags:uk" class="flag" /></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    scroll-margin-top: var(--header-height, 88px);
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.95;
+  }
+
+  .about-content p:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  .contact-info {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .contact-info p svg {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: -0.2em;
+    opacity: 0.85;
+  }
+
+  .contact-info p svg.flag {
+    vertical-align: -0.15em;
+    opacity: 1;
+  }
+
+  .contact-info a {
+    color: #64b5f6;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-info a:hover {
+    color: #90caf9;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .about-content p {
+      font-size: 1rem;
+    }
+  }
+</style>

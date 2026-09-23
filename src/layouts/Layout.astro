@@ -1,20 +1,25 @@
+---
+import '@fontsource/open-sans';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
-	Especifica la estetica para todas las apginas donde se utilice este layout
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="generator" content="Astro" />
+		<title>Camila Frontera</title>
 	</head>
 	<body>
-		<slot /> //toma la info que le pasemos de la pagina -placeholder
+		<slot /> 
 	</body>
 </html>
 
 <style>
+	html {
+		scroll-behavior: smooth;
+	}
+
 	html,
 	body {
 		margin: 0;

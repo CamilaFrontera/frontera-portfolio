@@ -1,0 +1,173 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="section" id="perfil-laboral">
+  <h2>Experiencia Profesional</h2>
+
+  <div class="experience-item">
+    <div class="experience-header">
+      <h3>QA Automation Engineer</h3>
+      <span class="company"><Icon name="mdi:office-building-outline" /> Interbanking S.A.</span>
+      <span class="period"><Icon name="mdi:calendar-range" /> 2021 – Actualidad · Remoto</span>
+    </div>
+    <p>Ingeniería de calidad para una plataforma bancaria empresarial orientada a pymes y grandes empresas. Testing de core (backend/APIs) y front-end.</p>
+    <ul class="achievements">
+      <li>Construí y automaticé cientos de casos de prueba, definiendo la cobertura a partir de historias de usuario y especificaciones técnicas</li>
+      <li>Automaticé suites de regresión que reemplazaron días de regresión manual por ejecuciones automáticas rápidas</li>
+      <li>Automaticé la generación de datos de prueba, reduciendo una tarea de 30 minutos a ~5 segundos</li>
+      <li>Consulto y valido datos en SQL como parte de la ejecución diaria de pruebas</li>
+      <li>Automatizo y valido APIs REST con Postman y Karate</li>
+      <li>Utilizo herramientas de IA (Amazon Q, Atlassian Rovo, Kiro) para optimizar código, tomar decisiones de manera ágil y generar reportes</li>
+    </ul>
+    <div class="tech-stack">
+      Playwright · Karate · Postman · APIs REST · SQL · Amazon Q · Atlassian Rovo · Git · JIRA · MongoDB
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-header">
+      <h3>Desarrolladora Frontend (Dev Trainee)</h3>
+      <span class="company"><Icon name="mdi:office-building-outline" /> Bit One</span>
+      <span class="period"><Icon name="mdi:calendar-range" /> 2021</span>
+    </div>
+    <p>Experiencia como desarrolladora que me da una mirada a nivel de código de lo que testeo — útil para escribir una automatización más efectiva y mantenible.</p>
+    <div class="tech-stack">
+      Angular · JavaScript · HTML · CSS · Git
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-header">
+      <h3>Profesora de Inglés <Icon name="circle-flags:uk" class="flag" /></h3>
+      <span class="company"><Icon name="mdi:office-building-outline" /> Instituto "Family"</span>
+      <span class="period"><Icon name="mdi:calendar-range" /> 2019 – 2020</span>
+    </div>
+    <p>Dictaba clases de inglés a grupos de niveles diversos, presenciales y online. Diseñé clases ajustadas a las necesidades de mis alumnos, elaboré evaluaciones y brindé retroalimentación personalizada, logrando que alcancen y superen los objetivos definidos al comienzo de cada curso.</p>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    scroll-margin-top: var(--header-height, 88px);
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  .experience-item {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .experience-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .experience-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+  }
+
+  .experience-header h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .experience-header h3 svg.flag {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.1em;
+  }
+
+  .company,
+  .period {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .company {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 0.15rem;
+  }
+
+  .period {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  .company svg,
+  .period svg {
+    width: 1.05em;
+    height: 1.05em;
+  }
+
+  .experience-item > p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.25rem 0;
+    opacity: 0.95;
+  }
+
+  .achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .achievements li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    opacity: 0.9;
+  }
+
+  .achievements li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #64b5f6;
+    font-weight: bold;
+  }
+
+  .tech-stack {
+    font-size: 0.9rem;
+    padding: 1rem;
+    background: rgba(100, 181, 246, 0.1);
+    border-radius: 0.5rem;
+    opacity: 0.85;
+    border-left: 3px solid rgba(100, 181, 246, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .experience-item {
+      padding: 1.5rem;
+    }
+  }
+</style>

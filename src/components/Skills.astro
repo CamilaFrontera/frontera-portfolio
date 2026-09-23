@@ -1,0 +1,149 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="section" id="habilidades">
+  <h2>Habilidades Principales</h2>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3><Icon name="mdi:robot-outline" /> Automatización & Testing</h3>
+      <ul>
+        <li>Playwright</li>
+        <li>Karate</li>
+        <li>Selenium / WebdriverIO</li>
+        <li>Cucumber</li>
+        <li>Pruebas de API REST</li>
+        <li>Postman</li>
+        <li>Base de Datos</li>
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <h3><Icon name="mdi:database-outline" /> Bases de Datos</h3>
+      <ul>
+        <li>SQL / PL-SQL</li>
+        <li>MongoDB</li>
+        <li>Bases de datos relacionales</li>
+        <li>Generación de datos de prueba</li>
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <h3><Icon name="mdi:tools" /> Herramientas & Metodologías</h3>
+      <ul>
+        <li>Amazon Q</li>
+        <li>Kiro</li>
+        <li>Atlassian Rovo</li>
+        <li>Pipelines de CI/CD</li>
+        <li>Git</li>
+        <li>JIRA</li>
+        <li>Ágil / Scrum</li>
+        <li>Testing shift-left</li>
+      </ul>
+    </div>
+
+    <div class="skill-category">
+      <h3><Icon name="mdi:code-tags" /> Lenguajes de Programación</h3>
+      <ul>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: white;
+    scroll-margin-top: var(--header-height, 88px);
+  }
+
+  h2 {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-category {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .skill-category:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .skill-category h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #90caf9;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-category h3 svg {
+    width: 1.3em;
+    height: 1.3em;
+    flex-shrink: 0;
+  }
+
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill-category li {
+    font-size: 0.95rem;
+    line-height: 2;
+    opacity: 0.9;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .skill-category li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #64b5f6;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 3rem 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      padding: 1.5rem;
+    }
+  }
+</style>
