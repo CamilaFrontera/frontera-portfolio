@@ -1,0 +1,132 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<header class="site-header">
+  <nav class="nav-bar" aria-label="Navegación principal">
+    <a href="#inicio" class="nav-link"><Icon name="mdi:home-outline" /> Inicio</a>
+    <a href="#sobre-mi" class="nav-link"><Icon name="mdi:account-outline" /> Sobre mí</a>
+    <a href="#perfil-laboral" class="nav-link"><Icon name="mdi:briefcase-outline" /> Experiencia</a>
+    <a href="#habilidades" class="nav-link"><Icon name="mdi:star-outline" /> Habilidades</a>
+    <a href="#educacion" class="nav-link"><Icon name="mdi:school-outline" /> Educación</a>
+    <a href="#contacto" class="nav-link"><Icon name="mdi:email-outline" /> Contacto</a>
+  </nav>
+</header>
+
+<script>
+  function setHeaderHeight() {
+    const header = document.querySelector('.site-header');
+    if (header instanceof HTMLElement) {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    }
+  }
+
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
+  document.addEventListener('astro:after-swap', setHeaderHeight);
+</script>
+
+<style>
+  :global(:root) {
+    --header-height: 88px;
+  }
+
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.25rem 2rem;
+    backdrop-filter: blur(20px);
+    background: rgba(47, 58, 239, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-link svg {
+    width: 1.05em;
+    height: 1.05em;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 181, 246, 0.2);
+    border: 1px solid rgba(100, 181, 246, 0.4);
+    border-radius: 999px;
+    z-index: -1;
+    transition: left 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #90caf9;
+    transform: translateY(-2px);
+  }
+
+  .nav-link:hover::before {
+    left: 0;
+  }
+
+  @media (max-width: 968px) {
+    :global(:root) {
+      --header-height: 132px;
+    }
+
+    .nav-bar {
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    :global(:root) {
+      --header-height: 172px;
+    }
+
+    .site-header {
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-bar {
+      gap: 0.3rem;
+    }
+
+    .nav-link {
+      padding: 0.45rem 0.75rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>
