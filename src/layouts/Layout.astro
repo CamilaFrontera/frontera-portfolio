@@ -1,14 +1,16 @@
 ---
 import '@fontsource/open-sans';
+
+const { title = 'Camila Frontera' } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content="Astro" />
-		<title>Camila Frontera</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<slot /> 
@@ -16,8 +18,18 @@ import '@fontsource/open-sans';
 </html>
 
 <style>
+	:global(*),
+	:global(*::before),
+	:global(*::after) {
+		box-sizing: border-box;
+	}
+
 	html {
 		scroll-behavior: smooth;
+	}
+
+	body {
+		overflow-x: clip;
 	}
 
 	html,
