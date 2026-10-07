@@ -3,7 +3,20 @@ import { Icon } from 'astro-icon/components';
 ---
 
 <header class="site-header">
-  <nav class="nav-bar" aria-label="Navegación principal">
+  <a href="#inicio" class="brand">Camila Frontera</a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="nav-principal"
+  >
+    <Icon name="mdi:menu" class="icon-open" />
+    <Icon name="mdi:close" class="icon-close" />
+  </button>
+
+  <nav class="nav-bar" id="nav-principal" aria-label="Navegación principal">
     <a href="#inicio" class="nav-link"><Icon name="mdi:home-outline" /> Inicio</a>
     <a href="#sobre-mi" class="nav-link"><Icon name="mdi:account-outline" /> Sobre mí</a>
     <a href="#perfil-laboral" class="nav-link"><Icon name="mdi:briefcase-outline" /> Experiencia</a>
@@ -24,6 +37,40 @@ import { Icon } from 'astro-icon/components';
   setHeaderHeight();
   window.addEventListener('resize', setHeaderHeight);
   document.addEventListener('astro:after-swap', setHeaderHeight);
+
+  // Menú hamburguesa (mobile)
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.menu-toggle');
+
+  function setMenuOpen(open: boolean) {
+    if (!header || !toggle) return;
+    header.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+
+  toggle?.addEventListener('click', () => {
+    setMenuOpen(!header?.classList.contains('is-open'));
+  });
+
+  // Cerrar al elegir una opción, al tocar fuera del menú o con Escape
+  header?.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (header && event.target instanceof Node && !header.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
+  });
+
+  window.matchMedia('(min-width: 969px)').addEventListener('change', (event) => {
+    if (event.matches) setMenuOpen(false);
+  });
 </script>
 
 <style>
@@ -42,6 +89,12 @@ import { Icon } from 'astro-icon/components';
     background: rgba(47, 58, 239, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Nombre y botón hamburguesa: solo visibles en mobile */
+  .brand,
+  .menu-toggle {
+    display: none;
   }
 
   .nav-bar {
@@ -95,46 +148,90 @@ import { Icon } from 'astro-icon/components';
     left: 0;
   }
 
-  /* En pantallas angostas el menú es una sola fila con scroll horizontal en vez de apilarse en varias filas */
   @media (max-width: 968px) {
     :global(:root) {
-      --header-height: 64px;
+      --header-height: 60px;
     }
 
     .site-header {
-      padding: 0.6rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1.25rem;
     }
 
-    .nav-bar {
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      gap: 0.4rem;
-      padding-inline: 1rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      /* Desvanecido en los bordes para indicar que hay más links al deslizar */
-      mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 2rem), transparent);
+    .brand {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
 
-    .nav-bar::-webkit-scrollbar {
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      color: white;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 0.75rem;
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .menu-toggle .icon-close,
+    .site-header.is-open .menu-toggle .icon-open {
       display: none;
     }
 
-    /* Centra la fila cuando entra completa, sin cortar el primer link cuando hay scroll */
-    .nav-link:first-child {
-      margin-left: auto;
+    .site-header.is-open .menu-toggle .icon-close {
+      display: block;
     }
 
-    .nav-link:last-child {
-      margin-right: auto;
+    /* Panel desplegable debajo de la barra */
+    .nav-bar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      gap: 0.25rem;
+      padding: 0.75rem 1.25rem 1.25rem;
+      background: rgba(22, 24, 80, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-0.5rem);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+
+    .site-header.is-open .nav-bar {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .nav-link {
-      flex-shrink: 0;
-      white-space: nowrap;
-      padding: 0.5rem 0.9rem;
-      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      font-size: 1.05rem;
+      border-radius: 0.75rem;
+      gap: 0.75rem;
+    }
+
+    .nav-link::before {
+      border-radius: 0.75rem;
     }
 
     .nav-link:hover {
