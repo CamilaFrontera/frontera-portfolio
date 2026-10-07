@@ -98,8 +98,6 @@ import { Icon } from 'astro-icon/components';
 <style>
   .section {
     padding: 5rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
     color: white;
     scroll-margin-top: var(--header-height, 88px);
   }
@@ -217,11 +215,43 @@ import { Icon } from 'astro-icon/components';
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+      text-align: center;
+    }
+
+    .education-item,
+    .certification-item {
+      text-align: center;
+    }
+
+    .education-item h3,
+    .certifications-title {
+      justify-content: center;
     }
 
     .certifications-grid {
       grid-template-columns: 1fr;
+    }
+
+    .education-item .institution,
+    .education-item .description {
+      font-size: 1.05rem;
+    }
+
+    .certification-item h4 {
+      font-size: 1.1rem;
+    }
+
+    .certification-item .issuer {
+      font-size: 1rem;
+    }
+
+    .certification-item .date {
+      font-size: 0.95rem;
+    }
+
+    .certification-item .credential {
+      font-size: 0.9rem;
     }
   }
 </style>

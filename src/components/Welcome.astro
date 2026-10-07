@@ -41,10 +41,22 @@ import Contacto from './Contact.astro';
 	:global(html), :global(body) {
 		margin: 0;
 		min-height: 100%;
+		font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	}
+
+	:global(html) {
+		background: #2f3aef;
+	}
+
+	/* Fondo fijo al viewport: no se repite ni se corta al hacer scroll en páginas largas (mobile) */
+	:global(body)::before {
+		content: '';
+		position: fixed;
+		inset: 0;
+		z-index: -1;
 		background: linear-gradient(135deg, #2f3aef, #b94eff, #ff6ec7, #26d0ce);
 		background-size: 400% 400%;
 		animation: gradientMove 15s ease infinite;
-		font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 	}
 
 	.page {
@@ -52,6 +64,20 @@ import Contacto from './Contact.astro';
 		font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
 		color: white;
 		padding-top: var(--header-height, 88px);
+	}
+
+	/* Cada sección tiene su propio fondo a todo el ancho, así el cambio de fondo coincide con el cambio de contenido */
+	.page > :global(section) {
+		padding-inline: max(2rem, calc((100% - 1000px) / 2));
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.page > :global(section:nth-of-type(odd)) {
+		background: rgba(14, 16, 54, 0.35);
+	}
+
+	.page > :global(section:nth-of-type(even)) {
+		background: rgba(14, 16, 54, 0.2);
 	}
 
 	.hero {
@@ -172,6 +198,10 @@ import Contacto from './Contact.astro';
 	}
 
 	@media (max-width: 768px) {
+		.page > :global(section) {
+			padding-inline: 1.5rem;
+		}
+
 		.hero {
 			padding: 3rem 1.5rem;
 		}
@@ -182,7 +212,29 @@ import Contacto from './Contact.astro';
 		}
 		
 		h1 {
-			font-size: clamp(2rem, 8vw, 3.5rem);
+			font-size: clamp(2.5rem, 10vw, 3.5rem);
+		}
+
+		.eyebrow {
+			font-size: 0.95rem;
+		}
+
+		.description {
+			font-size: 1.15rem;
+		}
+
+		.cta {
+			font-size: 1.05rem;
+		}
+
+		.hero-text {
+			margin-inline: auto;
+			text-align: center;
+		}
+
+		h1,
+		.description {
+			margin-inline: auto;
 		}
 
 		.cta-group {

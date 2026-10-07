@@ -95,38 +95,50 @@ import { Icon } from 'astro-icon/components';
     left: 0;
   }
 
+  /* En pantallas angostas el menú es una sola fila con scroll horizontal en vez de apilarse en varias filas */
   @media (max-width: 968px) {
     :global(:root) {
-      --header-height: 132px;
-    }
-
-    .nav-bar {
-      justify-content: center;
-      gap: 0.4rem;
-    }
-
-    .nav-link {
-      padding: 0.5rem 0.9rem;
-      font-size: 0.9rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    :global(:root) {
-      --header-height: 172px;
+      --header-height: 64px;
     }
 
     .site-header {
-      padding: 1rem 1.5rem;
+      padding: 0.6rem 0;
     }
 
     .nav-bar {
-      gap: 0.3rem;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 0.4rem;
+      padding-inline: 1rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      /* Desvanecido en los bordes para indicar que hay más links al deslizar */
+      mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 2rem), transparent);
+    }
+
+    .nav-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Centra la fila cuando entra completa, sin cortar el primer link cuando hay scroll */
+    .nav-link:first-child {
+      margin-left: auto;
+    }
+
+    .nav-link:last-child {
+      margin-right: auto;
     }
 
     .nav-link {
-      padding: 0.45rem 0.75rem;
-      font-size: 0.85rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link:hover {
+      transform: none;
     }
   }
 </style>

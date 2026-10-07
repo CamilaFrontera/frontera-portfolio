@@ -33,8 +33,6 @@ import { Icon } from 'astro-icon/components';
 <style>
   .section {
     padding: 5rem 2rem 6rem;
-    max-width: 1000px;
-    margin: 0 auto;
     color: white;
     scroll-margin-top: var(--header-height, 88px);
   }
@@ -62,7 +60,7 @@ import { Icon } from 'astro-icon/components';
 
   .contact-options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 2rem;
     width: 100%;
     margin-bottom: 3rem;
@@ -186,12 +184,20 @@ import { Icon } from 'astro-icon/components';
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
     }
 
     .contact-intro {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
+    }
+
+    .contact-card p {
+      font-size: 1.05rem;
+    }
+
+    .contact-action {
+      font-size: 1rem;
     }
 
     .contact-options {

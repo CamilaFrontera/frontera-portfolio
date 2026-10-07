@@ -50,8 +50,6 @@ import { Icon } from 'astro-icon/components';
 <style>
   .section {
     padding: 5rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
     color: white;
     scroll-margin-top: var(--header-height, 88px);
   }
@@ -163,11 +161,31 @@ import { Icon } from 'astro-icon/components';
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+      text-align: center;
+    }
+
+    .experience-header {
+      align-items: center;
+      text-align: center;
     }
 
     .experience-item {
       padding: 1.5rem;
+    }
+
+    .experience-item > p,
+    .achievements li {
+      font-size: 1.05rem;
+    }
+
+    .company {
+      font-size: 1.05rem;
+    }
+
+    .period,
+    .tech-stack {
+      font-size: 1rem;
     }
   }
 </style>
